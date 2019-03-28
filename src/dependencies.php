@@ -18,6 +18,7 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+// jwt
 $container['jwt'] = function ($c) {
     $settings = $c->get('settings')['jwt'];
     return new \Containers\JwtContainer($settings);

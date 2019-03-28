@@ -23,6 +23,20 @@ return [
             'id' => '86d56ebb-1341-4586-8487-07970956c3e6',
             'issuer' => 'http://example.com',
             'audience' => 'http://example.org',
+        ],
+
+        // db
+        'db' => [
+            'driver' => 'pgsql',
+            'host' => 'postgres',
+            'port' => '5432',
+            'database' => 'xxx',
+            'username' => 'postgres',
+            'password' => '12345678',
+            'charset'   => 'utf8',
+            'prefix'    => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer'
         ]
     ],
 ];

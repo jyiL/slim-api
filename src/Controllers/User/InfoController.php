@@ -8,6 +8,7 @@
 
 namespace Controllers\User;
 
+use Models\Member;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Interop\Container\ContainerInterface;
@@ -23,9 +24,14 @@ class InfoController
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        return $response->withJson([
-            'name' => 'Tom',
-            'sex' => 'man'
-        ], 200);
+        $route = $request->getAttribute('route');
+        $id = $route->getArgument('id');
+        $info = Member::query()->find($id);
+
+        if (!$info) return $response->withJson([
+            'message' => 'Not Found',
+        ], 404);
+
+        return $response->withJson($info->toArray(), 200);
     }
 }

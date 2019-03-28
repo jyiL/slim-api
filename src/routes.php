@@ -16,11 +16,13 @@ use Middlewares\AuthMiddleware;
 //});
 
 $app->group('/api', function () {
+    // oauth
     $this->group('/oauth', function () {
         $this->get('/authorization', '\Controllers\Oauth\AuthorizationController');
     });
 
+    // user
     $this->group('/user', function () {
-        $this->get('/info', '\Controllers\User\InfoController');
+        $this->get('/info/{id}', '\Controllers\User\InfoController');
     })->add(AuthMiddleware::class);
 });

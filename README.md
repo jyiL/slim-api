@@ -10,4 +10,5 @@ learning...
 	ip:8080
 
 ## TODO
-- [x] jwt
+- [x] Jwt
+- [x] Eloquent
