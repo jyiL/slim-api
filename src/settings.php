@@ -27,6 +27,7 @@ return [
 
         // db
         'db' => [
+            // pgsql
             'driver' => 'pgsql',
             'host' => 'postgres',
             'port' => '5432',
@@ -36,7 +37,20 @@ return [
             'charset'   => 'utf8',
             'prefix'    => '',
             'schema' => 'public',
-            'sslmode' => 'prefer'
+            'sslmode' => 'prefer',
+
+            // mysql
+//            'driver' => 'mysql',
+//            'host' => '',
+//            'port' => '3306',
+//            'database' => '',
+//            'username' => '',
+//            'password' => '',
+//            'charset' => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix' => '',
+//            'strict' => true,
+//            'engine' => null,
         ],
 
         // cors
