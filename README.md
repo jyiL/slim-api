@@ -14,7 +14,7 @@ learning...
     ./vendor/bin/openapi src -o public --format json
     
     ip:8890
-    API_URL: ip:8890/swagger
+    API_URL: ip:8890/api/swagger
 
 ## TODO
 - [x] Jwt
