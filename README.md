@@ -4,11 +4,13 @@ learning...
 
 ## QUICK START
 	composer install
+	docker-compose build
 	docker-compose up -d
 
-## 访问
+## Browse
 	ip:8080
 
 ## TODO
 - [x] Jwt
 - [x] Eloquent
+- [x] Swagger

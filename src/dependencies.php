@@ -23,3 +23,9 @@ $container['jwt'] = function ($c) {
     $settings = $c->get('settings')['jwt'];
     return new \Containers\JwtContainer($settings);
 };
+
+// cors
+$container['cors'] = function ($c) {
+    $settings = $c->get('settings')['cors'];
+    return new Medz\Cors\Slim\Cors($settings);
+};

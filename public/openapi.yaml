@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Slim API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/oauth/authorization": {
+            "get": {
+                "tags": [
+                    "Oauth"
+                ],
+                "operationId": "Controllers\\Oauth\\AuthorizationController::__invoke",
+                "responses": {
+                    "200": {
+                        "description": "An json resource"
+                    },
+                    "401": {
+                        "description": "An json resource"
+                    }
+                }
+            }
+        },
+        "/api/user/info/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "operationId": "Controllers\\User\\InfoController::__invoke",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Authorization",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An json resource"
+                    },
+                    "404": {
+                        "description": "An json resource"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Oauth"
+        },
+        {
+            "name": "User"
+        }
+    ]
+}

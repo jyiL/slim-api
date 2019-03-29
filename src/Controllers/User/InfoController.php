@@ -22,6 +22,40 @@ class InfoController
         $this->ci = $ci;
     }
 
+    /**
+     * @OA\Get(
+     *   path="/api/user/info/{id}",
+     *   tags={"User"},
+     *   @OA\Parameter(
+     *     name="id",
+     *     in="path",
+     *     required=true,
+     *     description="user id",
+     *     @OA\Schema(type="string")
+     *   ),
+     *   @OA\Parameter(
+     *     name="authorization",
+     *     in="header",
+     *     required=true,
+     *     description="Authorization",
+     *     @OA\Schema(type="string")
+     *   ),
+     *   @OA\Response(
+     *     response=200,
+     *     description="An json resource",
+     *   ),
+     *   @OA\Response(
+     *     response=404,
+     *     description="An json resource",
+     *   ),
+     *   @OA\SecurityScheme(
+     *     type="apiKey",
+     *     in="header",
+     *     securityScheme="api_key",
+     *     name="api_key"
+     *   )
+     * )
+     */
     public function __invoke(Request $request, Response $response, $args)
     {
         $route = $request->getAttribute('route');

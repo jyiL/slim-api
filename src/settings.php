@@ -30,13 +30,23 @@ return [
             'driver' => 'pgsql',
             'host' => 'postgres',
             'port' => '5432',
-            'database' => 'xxx',
+            'database' => 'jhpm',
             'username' => 'postgres',
             'password' => '12345678',
             'charset'   => 'utf8',
             'prefix'    => '',
             'schema' => 'public',
             'sslmode' => 'prefer'
+        ],
+
+        // cors
+        'cors' => [
+            'allow-credentials' => false, // set "Access-Control-Allow-Credentials" 👉 string "false" or "true".
+            'allow-headers'      => ['*'], // ex: Content-Type, Accept, X-Requested-With
+            'expose-headers'     => [],
+            'origins'            => ['*'], // ex: http://localhost
+            'methods'            => ['*'], // ex: GET, POST, PUT, PATCH, DELETE
+            'max-age'            => 0,
         ]
     ],
 ];

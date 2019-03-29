@@ -19,7 +19,8 @@
         "lcobucci/jwt": "^3.2",
         "ramsey/uuid": "^3.8",
         "zircote/swagger-php": "^3.0",
-        "illuminate/database": "^5.8"
+        "illuminate/database": "^5.8",
+        "medz/cors": "^1.4"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"

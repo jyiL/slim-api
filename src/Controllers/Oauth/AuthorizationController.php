@@ -11,6 +11,7 @@ namespace Controllers\Oauth;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Interop\Container\ContainerInterface;
+use OpenApi\Annotations as OA;
 
 class AuthorizationController
 {
@@ -21,6 +22,20 @@ class AuthorizationController
         $this->ci = $ci;
     }
 
+    /**
+     * @OA\Get(
+     *   path="/api/oauth/authorization",
+     *   tags={"Oauth"},
+     *   @OA\Response(
+     *     response=200,
+     *     description="An json resource",
+     *   ),
+     *   @OA\Response(
+     *     response=401,
+     *     description="An json resource",
+     *   ),
+     * )
+     */
     public function __invoke(Request $request, Response $response, $args)
     {
         //your code
