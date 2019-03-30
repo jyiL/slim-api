@@ -29,3 +29,13 @@ $container['cors'] = function ($c) {
     $settings = $c->get('settings')['cors'];
     return new Medz\Cors\Slim\Cors($settings);
 };
+
+// errorHandler
+$container['errorHandler'] = function ($c) {
+    return new \Handlers\Exception\CustomErrorHandler();
+};
+
+// phpErrorHandler
+$container['phpErrorHandler'] = function ($c) {
+    return new \Handlers\Exception\CustomPhpErrorHandlerHandler();
+};

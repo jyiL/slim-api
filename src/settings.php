@@ -1,4 +1,5 @@
 <?php
+
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
@@ -13,7 +14,8 @@ return [
         // Monolog settings
         'logger' => [
             'name' => 'slim-app',
-            'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
+//            'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
+            'path' => __DIR__ . '/../logs/' . date('Y-m-d') . '.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
 
@@ -31,7 +33,7 @@ return [
             'driver' => 'pgsql',
             'host' => 'postgres',
             'port' => '5432',
-            'database' => 'jhpm',
+            'database' => 'demo',
             'username' => 'postgres',
             'password' => '12345678',
             'charset'   => 'utf8',
@@ -61,6 +63,19 @@ return [
             'origins'            => ['*'], // ex: http://localhost
             'methods'            => ['*'], // ex: GET, POST, PUT, PATCH, DELETE
             'max-age'            => 0,
+        ],
+
+        // doctrine
+        'doctrine' => [
+            'connection' => [
+                'driver' => 'pdo_pgsql',
+                'host' => 'postgres',
+                'port' => 5432,
+                'dbname' => 'demo',
+                'user' => 'postgres',
+                'password' => '12345678',
+                'charset' => 'utf-8'
+            ]
         ]
     ],
 ];

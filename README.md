@@ -15,8 +15,13 @@ learning...
     
     ip:8890
     API_URL: ip:8890/api/swagger
+    
+## [Doctrine Migrations](https://www.doctrine-project.org/projects/doctrine-migrations/en/2.0/index.html)
+    ./vendor/bin/doctrine-migrations generate
+    ./vendor/bin/doctrine-migrations migrations:migrate 
 
 ## TODO
 - [x] Jwt
 - [x] Eloquent
 - [x] Swagger
+- [x] Doctrine Migrations
