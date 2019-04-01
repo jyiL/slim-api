@@ -4,7 +4,6 @@ learning...
 
 ## QUICK START
 	composer install
-	docker-compose build
 	docker-compose up -d
 
 ## Browse
@@ -25,3 +24,5 @@ learning...
 - [x] Eloquent
 - [x] Swagger
 - [x] Doctrine Migrations
+- [x] socialite(wechat, ....)
+- [x] predis

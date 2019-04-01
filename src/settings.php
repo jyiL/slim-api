@@ -1,8 +1,14 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
+
+$settingValue = Yaml::parseFile(__DIR__ . '/../configurations/settings.yml');
+
+$settingValue['wechat']['log']['file'] = __DIR__ . '/../logs/';
+
 return [
     'settings' => [
-        'displayErrorDetails' => true, // set to false in production
+        'displayErrorDetails' => file_exists('.develop') ? true : false, // set to false in production
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
         'determineRouteBeforeAppMiddleware' => true,
 
@@ -28,32 +34,10 @@ return [
         ],
 
         // db
-        'db' => [
-            // pgsql
-            'driver' => 'pgsql',
-            'host' => 'postgres',
-            'port' => '5432',
-            'database' => 'demo',
-            'username' => 'postgres',
-            'password' => '12345678',
-            'charset'   => 'utf8',
-            'prefix'    => '',
-            'schema' => 'public',
-            'sslmode' => 'prefer',
+        'db' => ['database'],
 
-            // mysql
-//            'driver' => 'mysql',
-//            'host' => '',
-//            'port' => '3306',
-//            'database' => '',
-//            'username' => '',
-//            'password' => '',
-//            'charset' => 'utf8',
-//            'collation' => 'utf8_unicode_ci',
-//            'prefix' => '',
-//            'strict' => true,
-//            'engine' => null,
-        ],
+        // redis
+        'redis' => $settingValue['redis'],
 
         // cors
         'cors' => [
@@ -66,16 +50,9 @@ return [
         ],
 
         // doctrine
-        'doctrine' => [
-            'connection' => [
-                'driver' => 'pdo_pgsql',
-                'host' => 'postgres',
-                'port' => 5432,
-                'dbname' => 'demo',
-                'user' => 'postgres',
-                'password' => '12345678',
-                'charset' => 'utf-8'
-            ]
-        ]
+        'doctrine' => $settingValue['doctrine'],
+
+        // wechat
+        'wechat' => $settingValue['wechat']
     ],
 ];

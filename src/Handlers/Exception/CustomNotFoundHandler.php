@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: jyl
- * Date: 2019/3/30
- * Time: 1:24 PM
+ * Date: 2019/4/1
+ * Time: 2:48 PM
  */
 
 namespace Handlers\Exception;
@@ -11,10 +11,11 @@ namespace Handlers\Exception;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class CustomPhpErrorHandlerHandler
+class CustomNotFoundHandler extends Error
 {
-    public function __invoke(Request $request, Response $response, $args)
+    public function __invoke(Request $request, Response $response, \Exception $exception)
     {
+        $this->ci['logger']->error($exception->getMessage());
         return $response->withJson([
             'message' => 'Something went wrong!',
         ], 500);

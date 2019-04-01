@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: jyl
- * Date: 2019/3/30
- * Time: 1:16 PM
+ * Date: 2019/4/1
+ * Time: 2:47 PM
  */
 
 namespace Handlers\Exception;
@@ -11,7 +11,7 @@ namespace Handlers\Exception;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class CustomErrorHandler extends Error
+class CustomNotAllowedHandler extends Error
 {
     public function __invoke(Request $request, Response $response, \Exception $exception)
     {

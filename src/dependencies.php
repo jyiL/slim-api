@@ -18,6 +18,13 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+// redis
+$container['redis'] = function ($c) {
+    $settings = $c->get('settings')['redis'];
+    if (empty($settings['password'])) unset($settings['password']);
+    return new Predis\Client($settings);
+};
+
 // jwt
 $container['jwt'] = function ($c) {
     $settings = $c->get('settings')['jwt'];
@@ -37,5 +44,21 @@ $container['errorHandler'] = function ($c) {
 
 // phpErrorHandler
 $container['phpErrorHandler'] = function ($c) {
-    return new \Handlers\Exception\CustomPhpErrorHandlerHandler();
+    return new \Handlers\Exception\CustomPhpErrorHandler($c);
+};
+
+// notAllowedHandler
+$container['notAllowedHandler'] = function ($c) {
+    return new \Handlers\Exception\CustomNotAllowedHandler();
+};
+
+// notFoundHandler
+$container['notFoundHandler'] = function ($c) {
+    return new \Handlers\Exception\CustomNotFoundHandler();
+};
+
+// wechat-miniProgram
+$container['wechatMiniProgram'] = function ($c) {
+    $settings = $c->get('settings')['wechat'];
+    return EasyWeChat\Factory::miniProgram($settings);
 };
