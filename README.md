@@ -7,6 +7,9 @@ learning...
 	cp configurations/settings-development.yml configurations/settings.yml
 	docker-compose up -d
 
+## Phpunit
+	./vendor/bin/phpunit
+
 ## Browse
 	ip:8080
 	
