@@ -13,11 +13,11 @@ use Slim\Http\Response;
 
 class CustomNotAllowedHandler extends Error
 {
-    public function __invoke(Request $request, Response $response, \Exception $exception)
+    public function __invoke(Request $request, Response $response, $methods)
     {
-        $this->ci['logger']->error($exception->getMessage());
+        $this->ci['logger']->error('Method must be one of: ' . implode(', ', $methods));
         return $response->withJson([
-            'message' => 'Something went wrong!',
-        ], 500);
+            'message' => 'Method must be one of: ' . implode(', ', $methods),
+        ], 405);
     }
 }

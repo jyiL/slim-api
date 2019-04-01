@@ -13,7 +13,7 @@ use Slim\Http\Response;
 
 class CustomErrorHandler extends Error
 {
-    public function __invoke(Request $request, Response $response, \Exception $exception)
+    public function __invoke(Request $request, Response $response, $exception)
     {
         $this->ci['logger']->error($exception->getMessage());
         return $response->withJson([

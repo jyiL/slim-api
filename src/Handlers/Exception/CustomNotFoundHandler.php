@@ -13,11 +13,10 @@ use Slim\Http\Response;
 
 class CustomNotFoundHandler extends Error
 {
-    public function __invoke(Request $request, Response $response, \Exception $exception)
+    public function __invoke(Request $request, Response $response)
     {
-        $this->ci['logger']->error($exception->getMessage());
         return $response->withJson([
             'message' => 'Something went wrong!',
-        ], 500);
+        ], 404);
     }
 }

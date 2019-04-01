@@ -39,7 +39,7 @@ $container['cors'] = function ($c) {
 
 // errorHandler
 $container['errorHandler'] = function ($c) {
-    return new \Handlers\Exception\CustomErrorHandler();
+    return new \Handlers\Exception\CustomErrorHandler($c);
 };
 
 // phpErrorHandler
@@ -49,12 +49,12 @@ $container['phpErrorHandler'] = function ($c) {
 
 // notAllowedHandler
 $container['notAllowedHandler'] = function ($c) {
-    return new \Handlers\Exception\CustomNotAllowedHandler();
+    return new \Handlers\Exception\CustomNotAllowedHandler($c);
 };
 
 // notFoundHandler
 $container['notFoundHandler'] = function ($c) {
-    return new \Handlers\Exception\CustomNotFoundHandler();
+    return new \Handlers\Exception\CustomNotFoundHandler($c);
 };
 
 // wechat-miniProgram

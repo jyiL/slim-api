@@ -8,16 +8,13 @@
 
 namespace Handlers\Exception;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-
 class CustomPhpErrorHandler extends Error
 {
-    public function __invoke(Request $request, Response $response, $exception)
+    public function __invoke($request, $response, $error)
     {
-        $this->ci['logger']->error($exception->getMessage());
+        $this->ci['logger']->error($error);
         return $response->withJson([
-            'message' => $exception->getMessage() . 'Something went wrong!',
+            'message' => 'Something went wrong!',
         ], 500);
     }
 }
