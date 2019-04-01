@@ -4,6 +4,7 @@ learning...
 
 ## QUICK START
 	composer install
+	cp configurations/settings-development.yml configurations/settings.yml
 	docker-compose up -d
 
 ## Browse
