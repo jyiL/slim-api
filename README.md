@@ -30,3 +30,4 @@ learning...
 - [x] Doctrine Migrations
 - [x] socialite(wechat, ....)
 - [x] predis
+- [x] [token bucket](https://github.com/bandwidth-throttle/token-bucket)

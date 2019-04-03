@@ -62,3 +62,21 @@ $container['wechatMiniProgram'] = function ($c) {
     $settings = $c->get('settings')['wechat'];
     return EasyWeChat\Factory::miniProgram($settings);
 };
+
+// token-bucket
+$container['tokenBucket'] = function ($c) {
+    $settings = $c->get('settings')['tokenBucket'];
+    $storage = new bandwidthThrottle\tokenBucket\storage\PredisStorage(
+        $settings['name'],
+        $c->get('redis')
+    );
+    $rate = new bandwidthThrottle\tokenBucket\Rate(
+        $settings['rate'],
+        bandwidthThrottle\tokenBucket\Rate::SECOND
+    );
+    $bucket =  new bandwidthThrottle\tokenBucket\TokenBucket($settings['bit'], $rate, $storage);
+
+    $bucket->bootstrap();
+
+    return $bucket;
+};

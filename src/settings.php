@@ -53,6 +53,13 @@ return [
         'doctrine' => $settingValue['doctrine'],
 
         // wechat
-        'wechat' => $settingValue['wechat']
+        'wechat' => $settingValue['wechat'],
+
+        // tokenBucket
+        'tokenBucket' => [
+            'name' => 'slim-token-bucket',
+            'bit' => '200',
+            'rate' => '50',
+        ]
     ],
 ];
