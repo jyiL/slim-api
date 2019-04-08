@@ -1,6 +1,8 @@
 ## Slim Api
 
-learning...
+[![Latest Stable Version](https://poser.pugx.org/jyil/slim-api/v/stable)](https://packagist.org/packages/jyil/slim-api)
+[![Total Downloads](https://poser.pugx.org/jyil/slim-api/downloads)](https://packagist.org/packages/jyil/slim-api)
+[![License](https://poser.pugx.org/jyil/slim-api/license)](https://packagist.org/packages/jyil/slim-api)
 
 ## QUICK START
 	composer install
