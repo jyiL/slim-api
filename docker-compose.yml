@@ -20,3 +20,14 @@ services:
         image: swaggerapi/swagger-ui
         ports:
             - "8890:8080"
+    slim-production:
+        image: jianyl/nginx-php-fpm
+        working_dir: /var/www/html
+        environment:
+            WEBROOT: /var/www/html/public
+        ports:
+            - 8090:80
+        volumes:
+            - .:/var/www/html
+            - logs:/var/www/html/logs
+            - ./config-nginx.d/:/etc/nginx/sites-enabled/
