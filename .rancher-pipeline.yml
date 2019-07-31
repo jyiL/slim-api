@@ -1,0 +1,14 @@
+stages:
+- name: test
+  steps:
+  - runScriptConfig:
+      image: php:latest
+      shellScript: |-
+        composer install
+        ./vendor/bin/phpunit
+  when:
+    event:
+      include:
+      - push
+timeout: 60
+notification: {}
