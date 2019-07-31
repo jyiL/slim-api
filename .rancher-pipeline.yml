@@ -2,7 +2,7 @@ stages:
 - name: test
   steps:
   - runScriptConfig:
-      image: php:7.2-cli
+      image: jianyl:php-7-alpine
       shellScript: |-
         curl -sS https://getcomposer.org/installer | php
         mv composer.phar /usr/local/bin/composer
