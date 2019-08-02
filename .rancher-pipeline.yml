@@ -2,8 +2,10 @@ stages:
 - name: test
   steps:
   - runScriptConfig:
-      image: composer
+      image: jianyl/php-7-alpine
       shellScript: |-
+        curl -sS https://getcomposer.org/installer | php
+        mv composer.phar /usr/local/bin/composer
         composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
         composer install -vvv
         ./vendor/bin/phpunit
